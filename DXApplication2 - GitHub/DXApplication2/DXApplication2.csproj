@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{21AE61CE-6EDE-42BB-99BD-44B0CC41B08D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DXApplication2</RootNamespace>
+    <AssemblyName>DXApplication2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v17.2" />
+    <Reference Include="DevExpress.Data.v17.2" />
+    <Reference Include="DevExpress.Utils.v17.2" />
+    <Reference Include="DevExpress.XtraBars.v17.2" />
+    <Reference Include="DevExpress.XtraEditors.v17.2" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v17.2" />
+    <Reference Include="DevExpress.Printing.v17.2.Core" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\RentACarProjectRemastered\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccounterPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccounterPanel.Designer.cs">
+      <DependentUpon>AccounterPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="accounting.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cars.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CarsPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CarsPanel.Designer.cs">
+      <DependentUpon>CarsPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseQuery.cs" />
+    <Compile Include="gps.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GPSpanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GPSpanel.Designer.cs">
+      <DependentUpon>GPSpanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="groups.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeintanceExamintaion.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MemberShipType.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MEpanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MEpanel.Designer.cs">
+      <DependentUpon>MEpanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rent.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rentAcarFinalDBEntities1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rentAcarFinalDBEntities1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rentAcarFinalDBEntities1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="rentAcarFinalDBEntities1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rentAcarFinalDBEntities1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="RentssPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RentssPanel.Designer.cs">
+      <DependentUpon>RentssPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserPanel.Designer.cs">
+      <DependentUpon>UserPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="users.cs">
+      <DependentUpon>rentAcarFinalDBEntities1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsersPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersPanel.Designer.cs">
+      <DependentUpon>UsersPanel.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccounterPanel.resx">
+      <DependentUpon>AccounterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarsPanel.resx">
+      <DependentUpon>CarsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GPSpanel.resx">
+      <DependentUpon>GPSpanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MEpanel.resx">
+      <DependentUpon>MEpanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RentssPanel.resx">
+      <DependentUpon>RentssPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserPanel.resx">
+      <DependentUpon>UserPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersPanel.resx">
+      <DependentUpon>UsersPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="rentAcarFinalDBEntities1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>rentAcarFinalDBEntities1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="rentAcarFinalDBEntities1.edmx.diagram">
+      <DependentUpon>rentAcarFinalDBEntities1.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-cursor.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\002-login-square-arrow-button-outline.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\003-key.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\004-avatar.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\005-accounting.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\006-rent-a-car.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\007-car.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001-cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\002-login-square-arrow-button-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\003-key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\004-avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\005-accounting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\006-rent-a-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\007-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="rentAcarFinalDBEntities1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>rentAcarFinalDBEntities1.Context.cs</LastGenOutput>
+      <DependentUpon>rentAcarFinalDBEntities1.edmx</DependentUpon>
+    </Content>
+    <Content Include="rentAcarFinalDBEntities1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>rentAcarFinalDBEntities1.edmx</DependentUpon>
+      <LastGenOutput>rentAcarFinalDBEntities1.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\rent.png" />
+    <None Include="Resources\003-save %283%29.png" />
+    <None Include="Resources\002-close-circular-button-of-a-cross %283%29.png" />
+    <None Include="Resources\001-exchange %283%29.png" />
+    <None Include="Resources\003-save.png" />
+    <None Include="Resources\002-close-circular-button-of-a-cross.png" />
+    <None Include="Resources\001-exchange.png" />
+    <None Include="Resources\006-rent-a-car1.png" />
+    <None Include="Resources\006-rent-a-car1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

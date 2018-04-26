@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rentAcarFinalDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="accounting">
+    <Key>
+      <PropertyRef Name="accountId" />
+    </Key>
+    <Property Name="accountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="accountType" Type="Int32" />
+    <Property Name="accountUserid" Type="Int32" />
+    <Property Name="accountRentid" Type="Int32" />
+    <Property Name="accountMeId" Type="Int32" />
+    <Property Name="accountMoney" Type="Double" />
+    <Property Name="accountDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Rent" Relationship="Self.FK__accountin__accou__47DBAE45" FromRole="accounting" ToRole="Rent" />
+    <NavigationProperty Name="MeintanceExamintaion" Relationship="Self.FK__accountin__accou__48CFD27E" FromRole="accounting" ToRole="MeintanceExamintaion" />
+    <NavigationProperty Name="users" Relationship="rentAcarFinalDBModel.FK__accountin__accou__46E78A0C" FromRole="accounting" ToRole="users" />
+  </EntityType>
+  <EntityType Name="cars">
+    <Key>
+      <PropertyRef Name="carId" />
+    </Key>
+    <Property Name="carId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="carGroup" Type="Int32" />
+    <Property Name="carKm" Type="Int32" />
+    <Property Name="carModel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="carManufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="carCare" Type="Int32" />
+    <Property Name="carExamination" Type="Int32" />
+    <Property Name="carPrice" Type="Double" />
+    <NavigationProperty Name="gps" Relationship="Self.FK__gps__gpsCarId__4BAC3F29" FromRole="cars" ToRole="gps" />
+    <NavigationProperty Name="Rent" Relationship="Self.FK__Rent__carId__412EB0B6" FromRole="cars" ToRole="Rent" />
+    <Property Name="carOK" Type="Int32" />
+  </EntityType>
+  <EntityType Name="gps">
+    <Key>
+      <PropertyRef Name="gpsId" />
+    </Key>
+    <Property Name="gpsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gpsXcord" Type="Double" />
+    <Property Name="gpsYcord" Type="Double" />
+    <Property Name="gpsCarId" Type="Int32" />
+    <NavigationProperty Name="cars" Relationship="Self.FK__gps__gpsCarId__4BAC3F29" FromRole="gps" ToRole="cars" />
+  </EntityType>
+  <EntityType Name="groups">
+    <Key>
+      <PropertyRef Name="groupsId" />
+    </Key>
+    <Property Name="groupsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="users" Relationship="rentAcarFinalDBModel.FK__users__usergroup__3B75D760" FromRole="groups" ToRole="users" />
+  </EntityType>
+  <EntityType Name="MeintanceExamintaion">
+    <Key>
+      <PropertyRef Name="meId" />
+    </Key>
+    <Property Name="meId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="meintanceDate" Type="DateTime" Precision="3" />
+    <Property Name="examinationsDate" Type="DateTime" Precision="3" />
+    <Property Name="meCarId" Type="Int32" />
+    <Property Name="meintanceDateNext" Type="DateTime" Precision="3" />
+    <Property Name="examinationsDateNext" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="accounting" Relationship="Self.FK__accountin__accou__48CFD27E" FromRole="MeintanceExamintaion" ToRole="accounting" />
+  </EntityType>
+  <EntityType Name="MemberShipType">
+    <Key>
+      <PropertyRef Name="memberId" />
+    </Key>
+    <Property Name="memberId" Type="Int32" Nullable="false" />
+    <Property Name="memberName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="discount" Type="Double" />
+    <NavigationProperty Name="users" Relationship="rentAcarFinalDBModel.FK__users__usermembe__3C69FB99" FromRole="MemberShipType" ToRole="users" />
+  </EntityType>
+  <EntityType Name="Rent">
+    <Key>
+      <PropertyRef Name="rentId" />
+    </Key>
+    <Property Name="rentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rentDate" Type="DateTime" Precision="3" />
+    <Property Name="RentFinishDate" Type="DateTime" Precision="3" />
+    <Property Name="carId" Type="Int32" />
+    <Property Name="userId" Type="Int32" />
+    <NavigationProperty Name="accounting" Relationship="Self.FK__accountin__accou__47DBAE45" FromRole="Rent" ToRole="accounting" />
+    <NavigationProperty Name="cars" Relationship="Self.FK__Rent__carId__412EB0B6" FromRole="Rent" ToRole="cars" />
+    <NavigationProperty Name="users" Relationship="rentAcarFinalDBModel.FK__Rent__userId__4222D4EF" FromRole="Rent" ToRole="users" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__accountin__accou__47DBAE45">
+    <End Role="Rent" Type="Self.Rent" Multiplicity="0..1" />
+    <End Role="accounting" Type="Self.accounting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rent">
+        <PropertyRef Name="rentId" />
+      </Principal>
+      <Dependent Role="accounting">
+        <PropertyRef Name="accountRentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__accountin__accou__48CFD27E">
+    <End Role="MeintanceExamintaion" Type="Self.MeintanceExamintaion" Multiplicity="0..1" />
+    <End Role="accounting" Type="Self.accounting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeintanceExamintaion">
+        <PropertyRef Name="meId" />
+      </Principal>
+      <Dependent Role="accounting">
+        <PropertyRef Name="accountMeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__gps__gpsCarId__4BAC3F29">
+    <End Role="cars" Type="Self.cars" Multiplicity="0..1" />
+    <End Role="gps" Type="Self.gps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cars">
+        <PropertyRef Name="carId" />
+      </Principal>
+      <Dependent Role="gps">
+        <PropertyRef Name="gpsCarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rent__carId__412EB0B6">
+    <End Role="cars" Type="Self.cars" Multiplicity="0..1" />
+    <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cars">
+        <PropertyRef Name="carId" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="carId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="rentAcarFinalDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accounting" EntityType="Self.accounting" />
+    <EntitySet Name="cars" EntityType="Self.cars" />
+    <EntitySet Name="gps" EntityType="Self.gps" />
+    <EntitySet Name="groups" EntityType="Self.groups" />
+    <EntitySet Name="MeintanceExamintaion" EntityType="Self.MeintanceExamintaion" />
+    <EntitySet Name="MemberShipType" EntityType="Self.MemberShipType" />
+    <EntitySet Name="Rent" EntityType="Self.Rent" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__accountin__accou__47DBAE45" Association="Self.FK__accountin__accou__47DBAE45">
+      <End Role="Rent" EntitySet="Rent" />
+      <End Role="accounting" EntitySet="accounting" />
+    </AssociationSet>
+    <AssociationSet Name="FK__accountin__accou__48CFD27E" Association="Self.FK__accountin__accou__48CFD27E">
+      <End Role="MeintanceExamintaion" EntitySet="MeintanceExamintaion" />
+      <End Role="accounting" EntitySet="accounting" />
+    </AssociationSet>
+    <AssociationSet Name="FK__gps__gpsCarId__4BAC3F29" Association="Self.FK__gps__gpsCarId__4BAC3F29">
+      <End Role="cars" EntitySet="cars" />
+      <End Role="gps" EntitySet="gps" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rent__carId__412EB0B6" Association="Self.FK__Rent__carId__412EB0B6">
+      <End Role="cars" EntitySet="cars" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <EntitySet Name="users" EntityType="rentAcarFinalDBModel.users" />
+    <AssociationSet Name="FK__accountin__accou__46E78A0C" Association="rentAcarFinalDBModel.FK__accountin__accou__46E78A0C">
+      <End Role="users" EntitySet="users" />
+      <End Role="accounting" EntitySet="accounting" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__usergroup__3B75D760" Association="rentAcarFinalDBModel.FK__users__usergroup__3B75D760">
+      <End Role="groups" EntitySet="groups" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__usermembe__3C69FB99" Association="rentAcarFinalDBModel.FK__users__usermembe__3C69FB99">
+      <End Role="MemberShipType" EntitySet="MemberShipType" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rent__userId__4222D4EF" Association="rentAcarFinalDBModel.FK__Rent__userId__4222D4EF">
+      <End Role="users" EntitySet="users" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="userNameSurname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="userAge" Type="DateTime" Precision="3" />
+    <Property Name="licenseId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="licenseYear" Type="DateTime" Precision="3" />
+    <Property Name="userTc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="userAdress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="userScore" Type="Int32" />
+    <Property Name="usermembership" Type="Int32" />
+    <Property Name="usergroup" Type="Int32" />
+    <Property Name="userAccountCreated" Type="DateTime" Precision="3" />
+    <Property Name="userMonthlyRent" Type="Int32" />
+    <NavigationProperty Name="accounting" Relationship="rentAcarFinalDBModel.FK__accountin__accou__46E78A0C" FromRole="users" ToRole="accounting" />
+    <NavigationProperty Name="groups" Relationship="rentAcarFinalDBModel.FK__users__usergroup__3B75D760" FromRole="users" ToRole="groups" />
+    <NavigationProperty Name="MemberShipType" Relationship="rentAcarFinalDBModel.FK__users__usermembe__3C69FB99" FromRole="users" ToRole="MemberShipType" />
+    <NavigationProperty Name="Rent" Relationship="rentAcarFinalDBModel.FK__Rent__userId__4222D4EF" FromRole="users" ToRole="Rent" />
+  </EntityType>
+  <Association Name="FK__accountin__accou__46E78A0C">
+    <End Type="rentAcarFinalDBModel.users" Role="users" Multiplicity="0..1" />
+    <End Type="rentAcarFinalDBModel.accounting" Role="accounting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="accounting">
+        <PropertyRef Name="accountUserid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__usergroup__3B75D760">
+    <End Type="rentAcarFinalDBModel.groups" Role="groups" Multiplicity="0..1" />
+    <End Type="rentAcarFinalDBModel.users" Role="users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="groups">
+        <PropertyRef Name="groupsId" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="usergroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__usermembe__3C69FB99">
+    <End Type="rentAcarFinalDBModel.MemberShipType" Role="MemberShipType" Multiplicity="0..1" />
+    <End Type="rentAcarFinalDBModel.users" Role="users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberShipType">
+        <PropertyRef Name="memberId" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="usermembership" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rent__userId__4222D4EF">
+    <End Type="rentAcarFinalDBModel.users" Role="users" Multiplicity="0..1" />
+    <End Type="rentAcarFinalDBModel.Rent" Role="Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
